@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://eevfsny60ork"]
+
+[ext_resource type="Script" uid="uid://dtfvdj6mamu54" path="res://Scripts/Player.gd" id="1_5a7ea"]
+[ext_resource type="Texture2D" uid="uid://hwwxgtccxci1" path="res://icon.svg" id="2_8j60k"]
+[ext_resource type="Script" uid="uid://bqv36i8ies77u" path="res://Scripts/Wand.gd" id="3_fo5ed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
+size = Vector2(128, 128)
+
+[node name="World" type="Node2D"]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall 1" type="StaticBody2D" parent="Walls"]
+position = Vector2(66, 322)
+scale = Vector2(1, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall 1"]
+texture = ExtResource("2_8j60k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall 1"]
+shape = SubResource("RectangleShape2D_5a7ea")
+
+[node name="Wall 2" type="StaticBody2D" parent="Walls"]
+position = Vector2(1083, 324)
+scale = Vector2(1, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall 2"]
+texture = ExtResource("2_8j60k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall 2"]
+shape = SubResource("RectangleShape2D_5a7ea")
+
+[node name="Wall 3" type="StaticBody2D" parent="Walls"]
+position = Vector2(574, 588)
+scale = Vector2(6.88, 0.92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall 3"]
+texture = ExtResource("2_8j60k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall 3"]
+shape = SubResource("RectangleShape2D_5a7ea")
+
+[node name="Wall 4" type="StaticBody2D" parent="Walls"]
+position = Vector2(574, 56.9999)
+scale = Vector2(6.88, 0.92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall 4"]
+texture = ExtResource("2_8j60k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall 4"]
+shape = SubResource("RectangleShape2D_5a7ea")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(535, 212)
+script = ExtResource("1_5a7ea")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_8j60k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="Dash_Cooldown" type="Timer" parent="Player"]
+wait_time = 1.5
+one_shot = true
+
+[node name="Wand" type="Node2D" parent="Player"]
+scale = Vector2(-323.287, -4.93805)
+script = ExtResource("3_fo5ed")
